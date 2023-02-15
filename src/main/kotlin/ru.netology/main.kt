@@ -3,7 +3,7 @@ package ru.netology
 data class Post(
     var id: Int,                //Идентификатор записи
     val ownerId: Int,           //Идентификатор владельца стены, на которой размещена запись
-    val fromId: Int,         //Идентификатор автора записи (от чьего имени опубликована запись)
+    val fromId: Int?,         //Идентификатор автора записи (от чьего имени опубликована запись)
     val friendsOnly: Boolean,   //Запись только для друзей
     val date: Long,             //Дата
     val text: String,           //Текст поста
@@ -43,6 +43,7 @@ object WallService {
     fun likeById(id: Int): Boolean {                                         //метод добавления лайка посту по его id
         for ((index, post) in posts.withIndex()) {
             if (post.id == id) {
+                //posts[index] = post.copy(likes = post.likes + 1)
                 posts[index] = post.copy(likes = post.likes + 1)
                 println("ПОСТ ЛАЙКНУТ")
                 return true
@@ -58,6 +59,7 @@ object WallService {
                 return post
             }
         }
+        return TODO()
     }
 
 
