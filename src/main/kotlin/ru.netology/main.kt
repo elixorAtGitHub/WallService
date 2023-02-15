@@ -3,7 +3,7 @@ package ru.netology
 data class Post(
     var id: Int,                //Идентификатор записи
     val ownerId: Int,           //Идентификатор владельца стены, на которой размещена запись
-    val fromId: Int,         //Идентификатор автора записи (от чьего имени опубликована запись)
+    val fromId: Int?,         //Идентификатор автора записи (от чьего имени опубликована запись)
     val friendsOnly: Boolean,   //Запись только для друзей
     val date: Long,             //Дата
     val text: String,           //Текст поста
